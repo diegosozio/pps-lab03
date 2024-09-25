@@ -1,0 +1,22 @@
+object Lab03 extends App {
+  // Definizione del tipo Sequence
+  sealed trait Sequence[+A]
+
+  case class Cons[A](head: A, tail: Sequence[A]) extends Sequence[A]
+
+  case class Nil[A]() extends Sequence[A]
+
+  // Funzione take
+  def take[A](l: Sequence[A], n: Int): Sequence[A] = l match {
+    case Cons(head, tail) if n > 0 => Cons(head, take(tail, n - 1))
+    case _ => Nil() // Quando n <= 0 o la lista è vuota
+  }
+
+  // Esempi di utilizzo
+  val lst = Cons(10, Cons(20, Cons(30, Nil())))
+
+  println(take(lst, 2)) // Output: Cons(10, Cons(20, Nil()))
+  println(take(lst, 0)) // Output: Nil()
+  println(take(lst, 5)) // Output: Cons(10, Cons(20, Cons(30, Nil())))
+
+}
