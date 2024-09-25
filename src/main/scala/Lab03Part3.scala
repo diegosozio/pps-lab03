@@ -1,5 +1,3 @@
-package u03
-
 import scala.annotation.tailrec
 
 object Lab03Part3 extends App {
@@ -38,7 +36,7 @@ object Lab03Part3 extends App {
     }
   }
 
-  import Stream._
+  import Stream.*
 
   // Esempio di utilizzo
   val s = iterate(0)(_ + 1) // Stream che genera numeri interi a partire da 0

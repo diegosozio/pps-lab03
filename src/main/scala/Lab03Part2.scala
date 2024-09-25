@@ -1,5 +1,3 @@
-package u03
-
 object Lab03Part2 extends App {
 
   println("implementazione punto 3")
@@ -123,7 +121,7 @@ object Lab03Part2 extends App {
   // Funzione min come estensione
   object MinOps {
 
-    import SequenceOps._
+    import SequenceOps.*
 
     implicit class IntSequenceExtensions(seq: Sequence[Int]) {
       def min: Option[Int] = seq match {
@@ -134,9 +132,9 @@ object Lab03Part2 extends App {
   }
 
   // Import esplicito di SequenceOps per poter usare i metodi di estensione
-  import SequenceOps._
+  import SequenceOps.*
   // Import esplicito di MinOps per poter usare il metodo di estensione `min`
-  import MinOps._
+  import MinOps.*
 
   val lstMin = Cons(3, Cons(7, Cons(1, Cons(5, Nil()))))
 
